@@ -141,20 +141,51 @@ button { font-family: inherit; }
 }
 
 .route-tab:hover {
-  border-color: var(--brand-pink);
-  background: var(--brand-pink-soft);
+  filter: brightness(1.05);
   transform: translateY(-1px);
 }
 
-.route-tab[aria-selected="true"] {
+/* 차량별 컬러 (항상 적용) */
+.route-tab[data-zone-name="1호차"] {
+  background: #EA4335;
+  border-color: #c5311f;
+  color: #fff;
+}
+
+.route-tab[data-zone-name="2호차"] {
+  background: #2E90FA;
+  border-color: #1c75dc;
+  color: #fff;
+}
+
+.route-tab[data-zone-name="1호차"] .tab-route,
+.route-tab[data-zone-name="2호차"] .tab-route {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.route-tab[data-zone-name="1호차"][aria-selected="true"] {
+  box-shadow: 0 8px 20px rgba(234, 67, 53, 0.35);
+}
+
+.route-tab[data-zone-name="2호차"][aria-selected="true"] {
+  box-shadow: 0 8px 20px rgba(46, 144, 250, 0.35);
+}
+
+/* 비활성 상태는 살짝 흐리게 */
+.route-tab[aria-selected="false"] {
+  opacity: 0.78;
+}
+
+.route-tab[aria-selected="false"]:hover {
+  opacity: 1;
+}
+
+/* 기본(미지정) 차량 fallback 그라데이션 */
+.route-tab:not([data-zone-name="1호차"]):not([data-zone-name="2호차"])[aria-selected="true"] {
   background: linear-gradient(135deg, var(--brand-pink), var(--brand-pink-dark));
   border-color: var(--brand-pink-dark);
   color: #fff;
   box-shadow: 0 8px 20px rgba(236, 72, 153, 0.25);
-}
-
-.route-tab[aria-selected="true"]:hover {
-  background: linear-gradient(135deg, var(--brand-pink-dark), #b82d6f);
 }
 
 .tab-emoji {
@@ -177,7 +208,7 @@ button { font-family: inherit; }
 }
 
 .tab-route {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--text-muted);
   white-space: nowrap;
   overflow: hidden;
@@ -204,14 +235,18 @@ button { font-family: inherit; }
   color: #fff;
 }
 
-.route-tab[aria-selected="true"] .tab-open {
-  background: rgba(255, 255, 255, 0.2);
+.route-tab[aria-selected="true"] .tab-open,
+.route-tab[data-zone-name="1호차"] .tab-open,
+.route-tab[data-zone-name="2호차"] .tab-open {
+  background: rgba(255, 255, 255, 0.22);
   color: #fff;
 }
 
-.route-tab[aria-selected="true"] .tab-open:hover {
+.route-tab[aria-selected="true"] .tab-open:hover,
+.route-tab[data-zone-name="1호차"] .tab-open:hover,
+.route-tab[data-zone-name="2호차"] .tab-open:hover {
   background: #fff;
-  color: var(--brand-pink);
+  color: #1f2330;
 }
 
 /* ===== 지도 패널 ===== */
