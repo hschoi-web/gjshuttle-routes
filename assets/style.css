@@ -233,6 +233,24 @@ button { font-family: inherit; }
   display: block;
 }
 
+/* ===== Footer (데이터 출처) ===== */
+.sidebar-foot {
+  flex: 0 0 auto;
+  padding: 12px 24px;
+  border-top: 1px solid var(--border);
+  background: #fff;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.sidebar-foot a {
+  color: var(--brand-pink);
+  text-decoration: none;
+}
+
+.sidebar-foot a:hover { text-decoration: underline; }
+
 /* ===== 반응형 (≤768px) ===== */
 @media (max-width: 768px) {
   :root { --topbar-h: 56px; }
