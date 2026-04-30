@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>광진구청 동행버스 통합 노선</title>
+<meta name="description" content="광진구청 동행버스(1호차·2호차) 노선과 실시간 차량 위치를 한 화면에서 확인하세요.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="assets/style.css?v=9">
+</head>
+<body>
+
+<header class="topbar">
+  <a href="#" class="brand" id="brandHome" aria-label="첫 화면으로">
+    <img src="assets/logo.png?v=1"
+         alt="광진구청 동행버스"
+         class="brand-logo"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+    <span class="brand-fallback" style="display:none" aria-hidden="true">
+      <span class="brand-emoji">🚌</span>
+      <strong>광진구청 동행버스</strong>
+    </span>
+    <div class="brand-text">
+      <span>광진구청 동행버스 · 통합 노선</span>
+    </div>
+  </a>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar" id="sidebar" aria-label="노선 트리">
+    <div class="search-box">
+      <input type="search" id="search" placeholder="🔍 노선 검색…" autocomplete="off">
+    </div>
+    <nav class="tree" id="tree" role="tree" aria-label="산단 노선">
+      <div class="loading">노선 데이터를 불러오는 중…</div>
+    </nav>
+    <footer class="sidebar-foot">
+      <small>데이터 출처: <a href="https://busansandan.rideus.net" target="_blank" rel="noopener">busansandan.rideus.net</a></small>
+    </footer>
+  </aside>
+
+  <main class="detail-panel">
+    <div class="detail-head">
+      <div class="breadcrumb" id="breadcrumb" aria-live="polite">
+        <span class="bc-ph">좌측에서 노선을 선택하세요</span>
+      </div>
+      <a id="mapOpenLink" class="card-link" target="_blank" rel="noopener" hidden>새 창에서 열기 ↗</a>
+    </div>
+    <div class="map-frame-wrap">
+      <iframe id="mapFrame"
+              title="선택한 노선 지도 / 정류장 / 실시간 차량 관제"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allow="geolocation"
+              src="about:blank"></iframe>
+    </div>
+  </main>
+
+</div>
+
+<template id="tplComplex">
+  <div class="node node-complex" role="treeitem" aria-expanded="false">
+    <button class="node-row complex-row" type="button">
+      <span class="caret" aria-hidden="true">▶</span>
+      <span class="node-icon">🏢</span>
+      <span class="node-name"></span>
+      <span class="node-count" aria-hidden="true"></span>
+    </button>
+    <div class="children" role="group" hidden></div>
+  </div>
+</template>
+
+<template id="tplZone">
+  <div class="node node-zone" role="treeitem" aria-expanded="false">
+    <button class="node-row zone-row" type="button">
+      <span class="caret" aria-hidden="true">▶</span>
+      <span class="node-icon">📍</span>
+      <span class="node-name"></span>
+    </button>
+    <div class="children" role="group" hidden>
+      <button class="leaf leaf-go" type="button" data-direction="go" role="treeitem">
+        <span class="leaf-icon">🚌</span> 출근
+      </button>
+      <button class="leaf leaf-return" type="button" data-direction="return" role="treeitem">
+        <span class="leaf-icon">🏠</span> 퇴근
+      </button>
+    </div>
+  </div>
+</template>
+
+<script src="assets/app.js?v=9" defer></script>
+</body>
+</html>

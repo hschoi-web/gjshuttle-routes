@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-04-30",
+  "source": "https://rideus.net/page/gjshuttle",
+  "mapBaseUrl": "https://gjshuttle.rideus.net/gjshuttle/shuttlebus/",
+  "complexes": [
+    {
+      "id": "gjshuttle",
+      "name": "광진구청 동행버스",
+      "zones": [
+        { "name": "1호차", "commute": { "go": 780, "return": null } },
+        { "name": "2호차", "commute": { "go": 781, "return": null } }
+      ]
+    }
+  ]
+}
