@@ -107,25 +107,31 @@ button { font-family: inherit; }
   font-size: 14px;
 }
 
-/* ===== 차량 탭 (네비게이션) ===== */
+/* ===== 본문 레이아웃 (좌측 차량 탭 + 우측 지도) ===== */
+.layout {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 0;
+}
+
+/* ===== 차량 탭 (좌측 사이드) ===== */
 .route-tabs {
-  flex: 0 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 16px 24px;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
   background: #fff;
-  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
 }
 
 .route-tab {
   position: relative;
-  flex: 1 1 240px;
-  max-width: 360px;
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 14px 20px;
+  padding: 14px 16px;
   background: #fff;
   border: 1.5px solid var(--border);
   border-radius: var(--radius-card);
@@ -210,10 +216,10 @@ button { font-family: inherit; }
 
 /* ===== 지도 패널 ===== */
 .map-panel {
-  flex: 1 1 auto;
   display: flex;
-  padding: 16px 24px 24px;
+  padding: 16px 24px 24px 16px;
   min-height: 0;
+  min-width: 0;
 }
 
 .map-frame-wrap {
@@ -258,9 +264,19 @@ button { font-family: inherit; }
   .topbar { padding: 0 14px; gap: 12px; }
   .brand-text span { display: none; }
 
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
   .route-tabs {
+    flex-direction: row;
+    flex-wrap: wrap;
     padding: 12px;
     gap: 8px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    overflow-y: visible;
   }
 
   .route-tab {

@@ -7,7 +7,7 @@
 <meta name="description" content="광진구청 동행버스(1호차·2호차) 노선과 실시간 차량 위치를 한 화면에서 확인하세요.">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="assets/style.css?v=11">
+<link rel="stylesheet" href="assets/style.css?v=12">
 </head>
 <body>
 
@@ -27,18 +27,19 @@
   </a>
 </header>
 
-<nav class="route-tabs" id="routeTabs" aria-label="차량 선택"></nav>
-
-<main class="map-panel">
-  <div class="map-frame-wrap">
-    <iframe id="mapFrame"
-            title="선택한 노선 지도 / 정류장 / 실시간 차량 관제"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allow="geolocation"
-            src="about:blank"></iframe>
-  </div>
-</main>
+<div class="layout">
+  <nav class="route-tabs" id="routeTabs" aria-label="차량 선택"></nav>
+  <main class="map-panel">
+    <div class="map-frame-wrap">
+      <iframe id="mapFrame"
+              title="선택한 노선 지도 / 정류장 / 실시간 차량 관제"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allow="geolocation"
+              src="about:blank"></iframe>
+    </div>
+  </main>
+</div>
 
 <footer class="sidebar-foot">
   <small>데이터 출처: <a href="https://rideus.net/page/gjshuttle" target="_blank" rel="noopener">rideus.net/page/gjshuttle</a></small>
@@ -55,6 +56,6 @@
   </button>
 </template>
 
-<script src="assets/app.js?v=11" defer></script>
+<script src="assets/app.js?v=12" defer></script>
 </body>
 </html>
