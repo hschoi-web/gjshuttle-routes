@@ -7,8 +7,16 @@
       "id": "gjshuttle",
       "name": "광진구청 동행버스",
       "zones": [
-        { "name": "1호차", "commute": { "go": 780, "return": null } },
-        { "name": "2호차", "commute": { "go": 781, "return": null } }
+        {
+          "name": "1호차",
+          "route": "자양~중곡~구의원",
+          "commute": { "go": 780, "return": null }
+        },
+        {
+          "name": "2호차",
+          "route": "구의~광장~중곡권",
+          "commute": { "go": 781, "return": null }
+        }
       ]
     }
   ]
